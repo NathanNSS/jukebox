@@ -1,0 +1,160 @@
+:root {
+    --bg-color: #2A2141;
+    --text-color: #E1E1E6;
+    --progressBar-color: #D9D9D9
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-color, red);
+    color: var(--text-color);
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.musicInfo {
+    text-overflow: ellipsis;
+}
+
+.containerMusicInfo {
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-between;
+    gap: 28px;
+}
+
+.info{
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+}
+
+.musicName{
+    font-weight: 700;
+    font-size: 24px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 10px;
+}
+
+.bandName{
+    font-weight: 400;
+    font-size: 20px;
+    opacity: 0.67;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.controler{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+.btnPlayer{
+    background-color: transparent;
+    border: unset;
+    color: var(--text-color, white);
+    font-size: 2.2rem;
+}
+
+.containerProgressBar{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px
+}
+
+.progressBar{
+    width: 100%;
+    height: 10px;
+    border-radius: 10px;
+    background-color: var(--progressBar-color, white);
+    opacity: 0.3;
+}
+
+.progress{
+    position: absolute;
+    height: 10px;
+    border-radius: 10px;
+    background-color: var(--progressBar-coloraa,white);
+    transition: all 0.3s;
+    z-index: 5;
+    
+}
+
+.containerTime{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.containerController{
+    display:flex; 
+    flex-direction:column; 
+    justify-content:flex-end;
+    gap:20px;
+}
+
+.inputRanger{
+    position:absolute; 
+    width:100%;
+    z-index:10;
+    opacity:0;
+    transform: translateY(-5px);
+    
+}
+
+
+@media screen and (max-width:480px) {
+    .main {
+        justify-content: space-evenly;
+        margin: 15% 10%;
+    }
+
+    .containerMusicInfo {
+        flex-direction: column;
+    }
+
+    .imgCapa {
+        width: 80vw;
+        border-radius: 6px;
+    }
+
+    .controler{
+        justify-content: space-between;
+    }
+
+}
+
+@media screen and (orientation: landscape) {    
+    .main {
+        justify-content: space-between;
+        width: 90vw;
+        gap: 28px;
+        margin: 5% ;
+    }
+
+    .info{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    
+    .imgCapa {
+        width: 15vw;
+        border-radius: 6px;
+    }    
+}
