@@ -1,0 +1,65 @@
+.containerVolume {
+    display: flex;
+}
+
+.volumeBar{
+    width: 100px;
+    position: relative;
+    opacity: 0;
+}
+
+.boxVolumeBar{
+    width: 100px;
+    position: absolute;
+    box-sizing: border-box;
+    transform-origin:   50px ;
+    transform: rotate(-90deg) translate( 60px, -35px);
+}
+
+.volumeStart{
+    animation: volumeUp 0.5s forwards;
+    
+}
+
+.volumeEnd{
+    animation: volumeDown 0.5s forwards ;
+}
+
+.btnVolume {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    color: #7d7d7e;
+    font-size: 1.5rem;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+.btnVolume:hover {
+    color: #b6bec4;
+}
+
+@keyframes volumeUp{
+    0%{
+        width: 0;
+        opacity: 0;
+    }
+    100%{
+        width: 100px;
+        opacity: 1;
+    }
+}
+
+@keyframes volumeDown{
+    0%{
+        width: 100px;
+        opacity: 1;
+    }
+    100%{
+        width: 0px;
+        opacity: 0;
+    }
+}

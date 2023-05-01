@@ -2,10 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import "./styles/global.css"
 
-import { MusicPlayer } from './app'
+import { App } from './app/App'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <MusicPlayer/>
+    <App/>
   </React.StrictMode>,
 )

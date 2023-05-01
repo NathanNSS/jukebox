@@ -1,160 +1,537 @@
 :root {
-    --bg-color: #2A2141;
-    --text-color: #E1E1E6;
-    --progressBar-color: #D9D9D9
+    --marginXPage: 3vw;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 100vw;
+    /* width: 100vw; */
     height: 100vh;
-    background-color: var(--bg-color, red);
-    color: var(--text-color);
+    background-image: linear-gradient(#1b2129, #111111);
+    position: relative;
 }
 
-.main {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+.content {
+    display: block;
+    position: relative;
+    margin: 0px var(--marginXPage);
 }
 
-.musicInfo {
-    text-overflow: ellipsis;
-}
-
-.containerMusicInfo {
+.header {
+    display: block;
+    position: relative;
     width: 100%;
-    display: flex;
-    box-sizing: border-box;
-    justify-content: space-between;
-    gap: 28px;
+    padding: 30px 0 15px;
+    box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.15);
 }
 
-.info{
-    width: 100%;
+.contentHeader {
+    display: flex;
     height: 100%;
+    gap: 20px;
+    color: #ffffff;
+    margin: 0px var(--marginXPage);
+}
+
+.infoHeader {
+    align-self: flex-end;
+    white-space: nowrap;
+    overflow: hidden;
     min-width: 0;
 }
 
-.musicName{
+.infoHeader>h5 {
     font-weight: 700;
-    font-size: 24px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin-bottom: 10px;
+    font-size: 0.7rem;
 }
 
-.bandName{
-    font-weight: 400;
-    font-size: 20px;
-    opacity: 0.67;
-    white-space: nowrap;
+.infoHeader>h1 {
+    font-weight: 900;
+    font-size: 4rem;
+    margin: 10px 0;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.controler{
-    display: flex;
-    justify-content: space-evenly;
+.infoHeader>p {
+    margin: 5px;
+    color: #b6bec4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 1px 0;
 }
 
-
-.btnPlayer{
-    background-color: transparent;
-    border: unset;
-    color: var(--text-color, white);
-    font-size: 2.2rem;
-}
-
-.containerProgressBar{
-    position: relative;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    row-gap: 10px
-}
-
-.progressBar{
-    width: 100%;
-    height: 10px;
-    border-radius: 10px;
-    background-color: var(--progressBar-color, white);
-    opacity: 0.3;
-}
-
-.progress{
-    position: absolute;
-    height: 10px;
-    border-radius: 10px;
-    background-color: var(--progressBar-coloraa,white);
-    transition: all 0.3s;
-    z-index: 5;
-    
-}
-
-.containerTime{
-    width: 100%;
+.actionListContainer {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin: 50px 0;
 }
 
-.containerController{
-    display:flex; 
-    flex-direction:column; 
-    justify-content:flex-end;
-    gap:20px;
+.actionListContainer>button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
 }
 
-.inputRanger{
-    position:absolute; 
-    width:100%;
-    z-index:10;
-    opacity:0;
-    transform: translateY(-5px);
-    
+.btnHandlePlayer {
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
+    color: white;
+    background-color: #1eb955 !important;
 }
 
+.btnHandlePlayer:hover {
+    background-color: #0e8b3a !important;
+}
+
+.btnMoreAction {
+    width: 50px;
+    height: 50px;
+}
+
+.btnMoreAction:hover {
+    background-color: #292929;
+}
+
+.listMusic {
+    width: 100%;
+}
+
+.listMusic>table {
+    width: 100%;
+    height: 40vh;
+    color: white;
+    table-layout: fixed;
+}
+
+.listMusic thead {
+    display: block;
+    width: 100%;
+    padding: 25px 0;
+    text-align: left;
+}
+
+.listMusic thead tr {
+    display: block;
+    width: 100%;
+}
+
+.listMusic thead tr th {
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.hTitle {
+    width: 45%;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.hAlbum,
+.bAlbum {
+    width: 25%;
+}
+
+.hDuration,
+.bDuration {
+    width: 15%;
+}
+
+.hAction,
+.bAction {
+    width: 7.5%;
+}
+
+.hAlbum,
+.hDuration {
+    font-size: 0.9rem;
+    color: #7d7d7e;
+}
+
+.listMusic tbody {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+
+
+}
+
+/* Works on Firefox */
+.listMusic tbody {
+    scrollbar-width: thin;
+    scrollbar-color: #5a5a5a #202020;
+}
+
+/* Works on Chrome, Edge, and Safari */
+.listMusic tbody::-webkit-scrollbar {
+    width: 15px;
+}
+
+.listMusic tbody::-webkit-scrollbar-track {
+    background: #202020;
+}
+
+.listMusic tbody::-webkit-scrollbar-thumb {
+    background-color: #5a5a5a
+        /* #1b2d46*/
+    ;
+    border-radius: 15px;
+    border: 4px solid #202020;
+}
+
+.listMusic tbody tr {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    column-gap: 10px;
+    vertical-align: middle;
+    padding: 10px 0;
+    margin-bottom: 5px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.listMusic tbody tr:hover {
+    background-color: #2e2e2e;
+}
+
+.bId,
+.bAlbum,
+.bDuration {
+    color: #7d7d7e;
+}
+
+
+.bId {
+    padding: 0 5px ;
+    width: 5%;
+    text-align: center;
+}
+
+.bImg {
+    width: 5%;
+}
+
+.bTitle {
+    width: 35%;
+}
+
+.imglist {
+    width: 100%;
+    border-radius: 6px;
+}
+
+.selection {
+    background-color: #303030;
+    border-radius: 8px;
+    color: #0e8b3a;
+}
+
+.startContainer {
+    animation: startPlayer 0.5s forwards ease-in-out;
+}
+
+.closeContainer {
+    animation: closePlayer 0.5s forwards ease-in-out;
+}
+
+.containerFooter {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    justify-content: space-between;
+    background-color: #1f1f1f;
+    color: white;
+    box-sizing: border-box;
+    padding: 10px 25px;
+}
+
+.infoMusic {
+    display: flex;
+    width: 200px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.capaAlbum {
+    width: 30%;
+    border-radius:4px ;
+}
+
+.descMusic {
+    display: inline;
+    width: 50%;
+    white-space: nowrap;
+    overflow: hidden;
+    min-width: 0;
+
+}
+
+.descMusic p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: capitalize;
+}
+
+.descMusic p:last-child {
+    font-size: 0.8rem;
+    color: #7d7d7e;
+}
+
+.infoMusic svg {
+    cursor: pointer;
+    color: #b6bec4;
+}
+
+.infoMusic svg:hover {
+    color: #ad3251;
+}
+
+.containerControllers {
+    max-width: 70%;
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    row-gap: 10px;
+}
+
+.controller {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 30px;
+}
+
+.controller button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    color: #7d7d7e;
+    font-size: 1.5rem;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.controller button:hover {
+    background-color: #3a3a3a;
+    color: #b6bec4;
+}
+
+.controllerActionButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.controllerFooterBtnPlayer {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #b6bec4 !important;
+    color: #b6bec4 !important;
+}
+
+.containerProgress {
+    width: 60vw;
+    display: flex;
+    align-items: center;
+    column-gap: 10px
+}
+.containerProgress span{
+    color: #7d7d7e;
+}
+
+.inputRanger {
+    width: 100%;
+    cursor: pointer;
+}
+
+/* Chrome */
+input[type="range"]{
+    cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb {
+    background-color: #0e8b3a;
+}
+
+/* Mozilla */
+input[type="range"]::-moz-range-thumb {
+    background-color: #0e8b3a;
+}
+
+/* Internet Explorer e Edge */
+input[type="range"]::-ms-thumb {
+    background-color: #0e8b3a;
+}
+
+.containerActions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.containerActions button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    color: #7d7d7e;
+    font-size: 1.5rem;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+.containerActions button:hover:first-child{
+    background-color: #3a3a3a;
+    color: #b6bec4;
+}
+
+.containerControllerMobile{
+    display: none;
+}
+
+@keyframes startPlayer {
+    from {
+        transform: translateY(-100vh);
+    }
+
+    to {
+        transform: translateY(0vh);
+    }
+}
+
+@keyframes closePlayer {
+    from {
+        transform: translateY(0vh);
+    }
+
+    to {
+        transform: translateY(-100vh);
+    }
+}
+
+@media screen and (orientation: landscape){
+    .container, .content{
+        height: 100%;
+    }
+
+    .content{
+        padding-bottom: 250px;
+    }
+
+    .startContainer{
+        position: fixed;
+    }
+
+    .closeContainer{
+        position: fixed;
+    }
+} 
 
 @media screen and (max-width:480px) {
-    .main {
-        justify-content: space-evenly;
-        margin: 15% 10%;
-    }
+    /*Header*/
 
-    .containerMusicInfo {
-        flex-direction: column;
-    }
-
-    .imgCapa {
-        width: 80vw;
-        border-radius: 6px;
-    }
-
-    .controler{
-        justify-content: space-between;
-    }
-
-}
-
-@media screen and (orientation: landscape) {    
-    .main {
-        justify-content: space-between;
-        width: 90vw;
-        gap: 28px;
-        margin: 5% ;
-    }
-
-    .info{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
+    .infoHeader {
+        align-self: flex-end;
+        white-space: nowrap;
+        overflow: hidden;
+        min-width: 0;
     }
     
-    .imgCapa {
-        width: 15vw;
-        border-radius: 6px;
-    }    
+    .infoHeader>h5 {
+        font-size: 0.7rem;
+    }
+    
+    .infoHeader>h1 {
+        font-size: 1.5rem;
+    }
+    
+    .infoHeader>p {
+        font-size: .9rem;
+    }
+
+    .actionListContainer {
+        margin: 15px 0;
+    }
+
+    .btnHandlePlayer {
+        width: 60px;
+        height: 60px;
+    }
+
+    .listMusic tbody tr{
+        column-gap: 10px;
+    }
+
+    .btnMoreAction {
+        width: 30px;
+        height: 30px;
+    }
+
+    /*Tabela*/
+
+    .bAlbum,
+    .hAlbum {
+        display: none;
+        width: 0;
+        opacity: 0;
+    }
+
+    .bImg {
+        width: 10%;
+    }
+
+    .bTitle {
+        width: 40%;
+    }
+    
+    .hTitle {
+        width: 65%;
+    }
+    
+    .bDuration{
+        width: 20%;
+    }
+
+   
+    .bAction{
+        display: none;
+    }
+
+    /*Footer*/
+
+    .containerControllers, .containerActions{
+        display: none;
+    }
+
+
+    .containerControllerMobile{
+        display: flex;
+    }
+
+    .controllerMobile{
+        background-color: transparent;
+        border: none;
+        color: white;
+        font-size: 2.2rem;
+        align-self: center;        
+    }
 }

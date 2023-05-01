@@ -2,6 +2,11 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+:root {
+    --bg-color: #2A2141;
+    --text-color: #E1E1E6;
+    --progressBar-color: #D9D9D9
+}
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
